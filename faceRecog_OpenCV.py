@@ -1,7 +1,6 @@
 import os, sys, pathlib, time, re, glob, math
 import numpy as np
 import cv2
-import pytesseract
 
 
 FIGLOC = "./faceImages/"

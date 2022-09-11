@@ -7,7 +7,7 @@ import pytesseract
 FIGLOC = "./carPlateImages/"
 ########################################################################################################
 def main():
-    imgPath = FIGLOC + "3.jpg"
+    imgPath = FIGLOC + "5.jpg"
     verbosity = 1 
 
     img = cv2.imread(imgPath)
