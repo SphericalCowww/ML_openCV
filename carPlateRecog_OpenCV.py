@@ -7,7 +7,7 @@ import pytesseract
 FIGLOC = "./carPlateImages/"
 ########################################################################################################
 def main():
-    imgPath = FIGLOC + "5.jpg"
+    imgPath = FIGLOC + "1.jpg"
     verbosity = 1 
 
     img = cv2.imread(imgPath)
@@ -29,6 +29,8 @@ def main():
     #element = cv2.getStructuringElement(shape=cv2.MORPH_RECT, ksize=(20, 20))
     #imgEdge = cv2.morphologyEx(src=imgEdge, op=cv2.MORPH_CLOSE, kernel=element)
     #imgEdge = cv2.Canny(imgEdge, 30, 200)
+    #imgEdge = cv2.dilate(imgEdge, np.ones((3, 5)), iterations=1)
+    #imgEdge = cv2.erode (imgEdge, np.ones((3, 5)), iterations=1)
     cv2.imshow("imgEdge", imgEdge); cv2.moveWindow("imgEdge", 300, 0)
 
     imgCont, imgContSel = img.copy(), img.copy()
