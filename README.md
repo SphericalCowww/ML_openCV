@@ -15,7 +15,7 @@ The following codes  The code runs on python3:
     
 References:
 There are many resources online and only main references are listed:
-- Murtaza's Workshop - Robotics and AI (2020) (<a href="https://www.youtube.com/watch?v=WQeoO7MI0Bs">Youtube</a>)
+- Murtaza's Workshop - Robotics and AI's Youtube Channel (2020) (<a href="https://www.youtube.com/watch?v=WQeoO7MI0Bs">Youtube</a>)
     
 
 
