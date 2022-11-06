@@ -4,10 +4,13 @@ import cv2
 
 
 FIGLOC = "./sampleImages/"
+OUTLOC = "./output/"
 ########################################################################################################
 # ref: learnopencv.com/super-resolution-in-opencv/
 def main():
-    imgPath = FIGLOC + "566.png"
+    imgPath = FIGLOC + "/566.png"
+    outPath = OUTLOC + "/out_566.png" 
+
     verbosity = 1 
     
     model = cv2.dnn_superres.DnnSuperResImpl_create()
@@ -26,14 +29,19 @@ def main():
 
     img = cv2.imread(imgPath)
     imgUpscaled = model.upsample(img)
-    img = cv2.resize(img, (imgUpscaled.shape[1], imgUpscaled.shape[0])) 
-    #imgUpscaled = cv2.resize(imgUpscaled, (img.shape[1], img.shape[0])) 
+    imgSizeOrig     = (img.shape[1], img.shape[0])
+    imgSizeUpscaled = (imgUpscaled.shape[1], imgUpscaled.shape[0])
+    img = cv2.resize(img, imgSizeUpscaled) 
     cv2.imshow("img", img); cv2.moveWindow("img", 0, 0)
     cv2.imshow("imgUpscaled", imgUpscaled); cv2.moveWindow("imgUpscaled", 600, 0)
 
     cv2.waitKey(0)
     cv2.destroyAllWindows()
- 
+
+    imgUpscaled = cv2.resize(imgUpscaled, imgSizeOrig)
+    pathlib.Path(OUTLOC).mkdir(parents=True, exist_ok=True)
+    cv2.imwrite(outPath, imgUpscaled) 
+    if verbosity >= 1: print("saving:", outPath)
 
 ########################################################################################################
 if __name__ == "__main__": main()
